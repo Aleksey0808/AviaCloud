@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Image, ImageBackground, View, Text, TouchableOpacity, FlatList } from 'react-native';
 import Header from '../components/Header';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
+  console.log(route.params.title)
 
   return (
     <View style={styles.container}>
@@ -11,7 +12,7 @@ const HomeScreen = ({ navigation }) => {
         style={styles.background}
       >
       <View style={styles.headerContainer}>
-        <Header title="Passenger planes" navigation={navigation} showBackButton={true} />
+        <Header title={route.params.title} navigation={navigation} showBackButton={true} />
       </View>
       </ImageBackground>
     </View>
