@@ -1,35 +1,59 @@
 import React from 'react';
-import { StyleSheet, Image, ImageBackground, View, Text, TouchableOpacity, FlatList } from 'react-native';
-import Header from '../components/Header';
+import { StyleSheet, View, Text, Image, ScrollView } from 'react-native';
 
-const HomeScreen = ({ navigation, route }) => {
-  console.log(route.params.title)
+const InfoPlanes = ({ route }) => {
+  const { plane } = route.params;
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require('../../assets/images/background/bgWelcome.jpg')}
-        style={styles.background}
-      >
-      <View style={styles.headerContainer}>
-        <Header title={route.params.title} navigation={navigation} showBackButton={true} />
+    <ScrollView style={styles.container}>
+      <Image source={plane.img} style={styles.image} />
+      <Text style={styles.title}>{plane.title}</Text>
+      <View style={styles.infoContainer}>
+        <Text style={styles.label}>Maximum Speed:</Text>
+        <Text style={styles.value}>{plane.MaximumSpeed} km/h</Text>
+        
+        <Text style={styles.label}>Fuel Efficiency:</Text>
+        <Text style={styles.value}>{plane.FuelEfficiency} liters</Text>
+        
+        <Text style={styles.label}>Wingspan:</Text>
+        <Text style={styles.value}>{plane.Wingspan}</Text>
+
+        <Text style={styles.label}>Description:</Text>
+        <Text style={styles.value}>{plane.Description}</Text>
       </View>
-      </ImageBackground>
-    </View>
+    </ScrollView>
   );
 };
 
-export default HomeScreen;
+export default InfoPlanes;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
-  background: {
-    flex: 1,
+  image: {
+    width: '100%',
+    height: 200, // Adjust as necessary
     resizeMode: 'cover',
   },
-  headerContainer: {
-    paddingTop: 50,
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    margin: 16,
+    color: '#333',
+  },
+  infoContainer: {
+    padding: 16,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginVertical: 4,
+  },
+  value: {
+    fontSize: 16,
+    marginBottom: 12,
+    color: '#555',
   },
 });
