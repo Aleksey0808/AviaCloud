@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     height: 45,
     width: 45,
     hitSlop: { top: 30, bottom: 30, left: 30, right: 30 },
+    zIndex: 50,
   },
   settingsButton: {
     position: 'absolute',

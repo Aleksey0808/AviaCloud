@@ -38,7 +38,7 @@
     "react-native-web": "~0.19.10",
     "react-router-native": "^6.27.0",
     "react-native-svg": "15.2.0",
-    "undefined": "react-native-svg/css"
+    "expo-blur": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
