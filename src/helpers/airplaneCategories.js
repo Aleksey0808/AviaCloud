@@ -20,6 +20,21 @@ export const airplaneCategories = [
         img: require('../../assets/images/planes/Reconnaissance/Northrop Grumman RQ-4 Global Hawk.jpg'),
         Description: "The Northrop Grumman Global Hawk is an unmanned surveillance aircraft that provides high-altitude, long-endurance intelligence collection."
       },
+      {
+        id: 2,
+        title: "Northrop Grumman RQ-4 Global Hawk",
+        Type: "Unmanned Aerial Vehicle (UAV) for Reconnaissance",
+        Manufacturer: "Northrop Grumman",
+        Role: "High-altitude, long-endurance surveillance and reconnaissance",
+        MaximumSpeed: "629 km/h (391 mph)",
+        Range: "22,780 km (14,150 miles)",
+        ServiceCeiling: "18,000 meters (59,000 ft)",
+        Engine: "Rolls-Royce F137-RR-100 turbofan",
+        FuelEfficiency: "Not specified",
+        Wingspan: "130.9 ft (40.0 m)",
+        img: require('../../assets/images/planes/Reconnaissance/Lockheed U-2.jpg'),
+        Description: "The RQ-4 Global Hawk is an unmanned aerial vehicle (UAV) designed for high-altitude, long-endurance surveillance and reconnaissance missions. Introduced in the early 2000s, it is capable of providing persistent real-time coverage of large areas, making it invaluable for military and intelligence operations. The Global Hawk carries a variety of sensors, including synthetic aperture radar and electro-optical/infrared sensors, to collect detailed imagery and data."
+      },
     ]
   },
   {
@@ -43,6 +58,21 @@ export const airplaneCategories = [
         img: require('../../assets/images/planes/Training/Beechcraft T-6 Texan II.jpg'),
         Description: "The Beechcraft T-6 Texan II is a single-engine turboprop military trainer aircraft used for training pilots in the United States Air Force and Navy."
       },
+      {
+        id: 2,
+        title: "Pilatus PC-21",
+        Type: "Trainer Aircraft",
+        Manufacturer: "Pilatus Aircraft",
+        Role: "Advanced flight training, aerobatics, weapons training",
+        MaximumSpeed: "685 km/h (426 mph)",
+        Range: "1,330 km (827 miles)",
+        ServiceCeiling: "11,582 meters (38,000 ft)",
+        Engine: "Pratt & Whitney Canada PT6A-68B turboprop",
+        FuelEfficiency: "Not specified",
+        Wingspan: "9.11 m (29.9 ft)",
+        img: require('../../assets/images/planes/Training/Pilatus PC-21.jpg'),
+        Description: "The Pilatus PC-21 is a high-performance turboprop trainer aircraft designed for advanced pilot training. Introduced in 2002, the PC-21 is equipped with state-of-the-art avionics and systems that simulate the capabilities of modern jet fighters, including glass cockpit displays and advanced flight controls. It is used by air forces around the world to prepare pilots for transition to more complex aircraft, offering a cost-effective solution for high-level flight training."
+      }      
     ]
   },
   {
@@ -66,6 +96,54 @@ export const airplaneCategories = [
         img: require('../../assets/images/planes/Combat/Su-35.jpg'),
         Description: "The F-35 Lightning II is a family of stealth multirole fighters that are designed for ground attack and air superiority missions."
       },
+      {
+        id: 2,
+        title: "F/A-18 Hornet",
+        Type: "Multirole Fighter",
+        Manufacturer: "McDonnell Douglas (now Boeing)",
+        Role: "Fighter, attack, reconnaissance",
+        MaximumSpeed: "Approximately Mach 1.8 (1,915 km/h or 1,190 mph)",
+        Range: "Approximately 3,330 km (2,070 miles) with external fuel tanks",
+        Armament: "Equipped with a 20 mm M61A1 Vulcan cannon, air-to-air missiles, air-to-ground missiles, bombs, and rockets",
+        Engine: "Twin General Electric F404-GE-402 turbofans",
+        ServiceCeiling: "15,240 meters (50,000 ft)",
+        FuelEfficiency: "Not specified",
+        Wingspan: "12.31 m (40 ft 4 in)",
+        img: require('../../assets/images/planes/Combat/F:A-18 Hornet.jpg'),
+        Description: "The F/A-18 Hornet is a twin-engine, multirole combat jet, designed for both air superiority and ground attack missions. It entered service with the U.S. Navy and Marine Corps in the 1980s and has since been adopted by several other countries. The Hornet’s versatility and reliability have made it a key asset in various military operations. It is capable of operating from aircraft carriers, making it an integral part of naval aviation."
+      },
+      {
+        id: 3,
+        title: "Eurofighter Typhoon",
+        Type: "Multirole Fighter",
+        Manufacturer: "Eurofighter GmbH",
+        Role: "Air superiority, ground attack",
+        MaximumSpeed: "Approximately Mach 2 (2,495 km/h or 1,550 mph)",
+        Range: "Approximately 2,900 km (1,800 miles) with external fuel tanks",
+        Armament: "Equipped with a 27 mm Mauser BK-27 cannon, air-to-air missiles, air-to-ground missiles, bombs, and rockets",
+        Engine: "Twin Eurojet EJ200 afterburning turbofans",
+        ServiceCeiling: "19,812 meters (65,000 ft)",
+        FuelEfficiency: "Not specified",
+        Wingspan: "10.95 m (36 ft)",
+        img: require('../../assets/images/planes/Combat/Eurofighter Typhoon.jpg'),
+        Description: "The Eurofighter Typhoon is a highly agile, multirole combat aircraft designed and produced by a consortium of European aerospace companies. Since entering service in the early 2000s, it has been used by several European and international air forces. The Typhoon is known for its advanced avionics, strong air-to-air combat capabilities, and effective ground-attack options."
+      },
+      {
+        id: 4,
+        title: "Su-35",
+        Type: "Multirole Fighter",
+        Manufacturer: "Sukhoi (part of United Aircraft Corporation)",
+        Role: "Air superiority, ground attack",
+        MaximumSpeed: "Approximately Mach 2.25 (2,400 km/h or 1,500 mph)",
+        Range: "Approximately 3,600 km (2,200 miles) with external fuel tanks",
+        Armament: "Equipped with a 30 mm GSh-30-1 cannon, air-to-air missiles, air-to-ground missiles, bombs, and rockets",
+        Engine: "Twin Saturn AL-41F1S afterburning turbofans",
+        ServiceCeiling: "18,000 meters (59,000 ft)",
+        FuelEfficiency: "Not specified",
+        Wingspan: "14.7 m (48 ft 6 in)",
+        img: require('../../assets/images/planes/Combat/Su-35.jpg'),
+        Description: "The Sukhoi Su-35 is an advanced derivative of the Su-27, a highly maneuverable multirole fighter aircraft. It features modern avionics, improved engines, and reduced radar cross-section, enhancing its combat effectiveness. The Su-35 is designed for air superiority missions but is also capable of performing ground attack roles."
+      }
     ]
   },
   {
@@ -172,6 +250,7 @@ export const airplaneCategories = [
         Engine: "Four-engine, typically General Electric CF6, Pratt & Whitney PW4000, or Rolls-Royce RB211",
         ServiceCeiling: "45,000 feet",
         FuelEfficiency: "Not specified",
+        MaxTakeoffWeight: "Up to 987,000 lbs (447,700 kg)",
         Wingspan: "68.4 m (224 ft 7 in)",
         img: require('../../assets/images/planes/Passenger/Boeing 747.jpg'),
         Description: "The Boeing 747, known as the 'Jumbo Jet,' revolutionized air travel with its size and capacity for long-haul routes."
@@ -188,26 +267,60 @@ export const airplaneCategories = [
         Engine: "Twin-engine, powered by Rolls-Royce Trent XWB turbofans",
         ServiceCeiling: "43,000 feet",
         FuelEfficiency: "Not specified",
+        MaxTakeoffWeight: "Up to 803,000 lbs (365,000 kg)",
         Wingspan: "64.75 m (212 ft 4 in)",
         img: require('../../assets/images/planes/Passenger/Airbus A350.jpg'),
         Description: "The Airbus A350 is a modern long-range wide-body airliner known for its fuel efficiency and advanced aerodynamics."
       },
-      // {
-      //   id: 3,
-      //   title: "Boeing 737",
-      //   Type: "Passenger",
-      //   Manufacturer: "Boeing",
-      //   Role: "Narrow-body airliner",
-      //   MaximumSpeed: "850 km/h (530 mph)",
-      //   Range: "Approximately 6,570 km (3,550 nautical miles)",
-      //   Armament: "None",
-      //   Engine: "Twin-engine, typically CFM56 or LEAP-1B",
-      //   ServiceCeiling: "41,000 feet",
-      //   FuelEfficiency: "Not specified",
-      //   Wingspan: "35.8 m (117 ft 5 in)",
-      //   img: require('../../assets/images/planes/Passenger/Boeing 737.jpg'),
-      //   Description: "The Boeing 737 is a widely used narrow-body airliner known for its short to medium-haul routes."
-      // },
+      {
+        id: 3,
+        title: "Boeing 787 Dreamliner",
+        Type: "Passenger",
+        PassengerCapacity: "Up to 330 passengers, depending on the variant and configuration.",
+        Range: "Approximately 13,530 km (7,300 nautical miles).",
+        Speed: "Maximum cruising speed of 913 km/h (567 mph).",
+        Payload: "Up to 54,000 kg (119,050 lbs).",
+        MaximumSpeed: "913 km/h (567 mph)",
+        Wingspan: "60.1 meters (197 ft 3 in).",
+        Engine: "Twin-engine, typically Rolls-Royce Trent 1000 or General Electric GEnx turbofans.",
+        MaxTakeoffWeight: "Up to 254,000 kg (560,000 lbs).",
+        FuelEfficiency: "Approximately 2.2 liters per 100 km per passenger.",
+        img: require('../../assets/images/planes/Passenger/Boeing 787 Dreamliner.jpg'),
+        Description: "The Boeing 787 Dreamliner, introduced in 2011, is notable for its use of composite materials, which reduce weight and increase fuel efficiency. The aircraft offers enhanced passenger comfort with larger windows, higher cabin humidity, and improved air quality. It is widely used for long-haul flights, providing airlines with significant operational cost savings."
+      },
+      {
+        id: 4,
+        title: "Airbus A320",
+        Type: "Passenger",
+        PassengerCapacity: "Up to 240 passengers in high-density configurations, typically around 150-180 in a standard layout.",
+        Range: "Approximately 6,300 km (3,400 nautical miles).",
+        Speed: "Maximum cruising speed of 828 km/h (514 mph).",
+        Payload: "Up to 19,000 kg (41,888 lbs).",
+        MaximumSpeed: "828 km/h (514 mph)",
+        Wingspan: "35.8 meters (117 ft 5 in).",
+        Engine: "Twin-engine, typically CFM56 or International Aero Engines (IAE) V2500 turbofans.",
+        MaxTakeoffWeight: "Up to 93,500 kg (206,132 lbs).",
+        FuelEfficiency: "Approximately 2.5 liters per 100 km per passenger.",
+        img: require('../../assets/images/planes/Passenger/Airbus A320.jpg'),
+        Description: "Launched in 1988, the Airbus A320 is a cornerstone of modern short- to medium-haul airline operations. It is the first airliner to feature a fully digital fly-by-wire control system, setting new standards for efficiency and reliability. The A320 family, including the A321 and A319 variants, has become one of the most popular aircraft families worldwide."
+      },
+      {
+        id: 5,
+        title: "Embraer E195-E2",
+        Type: "Passenger",
+        PassengerCapacity: "Up to 146 passengers in a single-class configuration.",
+        Range: "Approximately 4,815 km (2,600 nautical miles).",
+        Speed: "Maximum cruising speed of 870 km/h (541 mph).",
+        Payload: "Up to 16,150 kg (35,605 lbs).",
+        MaximumSpeed: "870 km/h (541 mph)",
+        Wingspan: "35.1 meters (115 ft 2 in).",
+        Engine: "Twin-engine, Pratt & Whitney PW1900G geared turbofans.",
+        MaxTakeoffWeight: "61,500 kg (135,584 lbs).",
+        FuelEfficiency: "Approximately 2.3 liters per 100 km per passenger.",
+        img: require('../../assets/images/planes/Passenger/Embraer E195-E2.jpg'),
+        Description: "The Embraer E195-E2 is part of the E-Jet E2 family, a series of advanced regional jets designed for efficiency and comfort. Introduced in 2019, the E195-E2 offers significant improvements in fuel efficiency, noise reduction, and operating costs over previous models. It is ideal for regional routes and provides airlines with flexibility and reduced environmental impact."
+      }
+      
     ]
   },
   {

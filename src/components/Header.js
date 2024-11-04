@@ -5,6 +5,7 @@ import Setting from '../../assets/icons/Setting';
 import Back from '../../assets/icons/Back';
 
 const Header = ({ title, navigation, showBackButton }) => {
+
   return (
     <View style={styles.container}>
       {showBackButton && (
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     flex: 1,
-    textAlign: 'center',
     color: '#fff',
+    textAlign: 'center',
   },
   backButton: {
     alignItems: 'center',
