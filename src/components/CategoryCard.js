@@ -29,12 +29,14 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.5,
+    overflow: 'hidden'
   },
   image: {
     marginBottom: 'auto',
     width: '100%',
     height: 100,
     resizeMode: 'cover',
+    marginTop: -25,
   },
   title: {
     fontSize: 16,

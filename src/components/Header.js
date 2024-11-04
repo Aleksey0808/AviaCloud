@@ -14,7 +14,7 @@ const Header = ({ title, navigation, showBackButton }) => {
       )}
       <Text style={styles.title}>{title}</Text>
       {!showBackButton && (
-        <TouchableOpacity onPress={() => navigation.navigate('Settings')} style={styles.settingsButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('Setting')} style={styles.settingsButton}>
           <Setting /> 
         </TouchableOpacity>
       )}

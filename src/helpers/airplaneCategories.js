@@ -221,13 +221,14 @@ export const airplaneCategories = [
         Type: "Business",
         Manufacturer: "Gulfstream Aerospace",
         Role: "Luxury Business Jet",
-        MaximumSpeed: "Mach 0.925",
+        MaximumSpeed: "0.925 Mach",
         Range: "Approximately 13,000 km (7,000 nautical miles)",
         Armament: "None",
         Engine: "Twin-engine, Rolls-Royce BR725",
         ServiceCeiling: "51,000 feet",
         FuelEfficiency: "5,000 lb/hr",
         Wingspan: "99.5 ft (30.3 m)",
+        img: require('../../assets/images/planes/Business/ Gulfstream G650.jpg'),
         Description: "The Gulfstream G650 is known for its high speed and long-range capability, making it ideal for international travel."
     },
     ]

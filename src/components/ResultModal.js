@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, Modal, TouchableOpacity, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native';
 import { BlurView } from 'expo-blur';
+import { useNavigation } from '@react-navigation/native';
 
 const ResultModal = ({ visible, correctAnswers, totalQuestions, onClose, onPlayAgain }) => {
+  const navigation = useNavigation();
   const isWin = correctAnswers === totalQuestions;
 
   return (
