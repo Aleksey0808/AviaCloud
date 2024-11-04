@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, FlatList, Dimensions } from 'react-native';
 import { BlurView } from 'expo-blur';
 import Header from '../components/Header';
 import ResultModal from '../components/ResultModal'; 
 import { quizData } from '../helpers/quizData';
+
+const { width } = Dimensions.get('window');
 
 const GameScreen = ({ navigation }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -32,8 +34,9 @@ const GameScreen = ({ navigation }) => {
       style={styles.background}
     >
       <View style={styles.container}>
-        <Header title="Aviation Quiz" navigation={navigation} showBackButton={true} />
-
+         <View style={styles.headerContainer}>
+            <Header title="Aviation Quiz" navigation={navigation} showBackButton={true} />
+        </View>
         <View style={styles.progressBarContainer}>
           <View style={[styles.progressBarFill, { width: `${progress}%` }]} />
         </View>
@@ -63,7 +66,7 @@ const GameScreen = ({ navigation }) => {
 
         <TouchableOpacity
           style={[styles.nextButton, !selectedAnswer && styles.disabledButton]}
-          onPress={() => handleAnswerPress(selectedAnswer === currentQuestion.correctAnswer)}
+          onPress={() => handleAnswerPress(selectedAnswer === currentQuestion.answer)}
           disabled={!selectedAnswer}
         >
           <Text style={styles.nextButtonText}>Next</Text>
@@ -97,12 +100,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  headerContainer: {
+    paddingTop: 50,
+    marginBottom: 20,
+  },
   progressBarContainer: {
-    height: 10,
-    backgroundColor: '#333',
-    borderRadius: 5,
+    height: 15,
+    backgroundColor: '#000', 
+    borderRadius: 15,
     marginVertical: 10,
     overflow: 'hidden',
+    width: '100%', 
+    shadowColor: '#000', 
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 3.84,
+    elevation: 5, 
   },
   progressBarFill: {
     height: '100%',
@@ -124,8 +140,8 @@ const styles = StyleSheet.create({
     gap: 30,
   },
   answerCard: {
-    width: 150,
-    height: 120,
+    width: width * 0.4,
+    height: width * 0.3,
     borderRadius: 18,
     overflow: 'hidden', 
     marginBottom: 20,

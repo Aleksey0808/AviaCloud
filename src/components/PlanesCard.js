@@ -17,15 +17,15 @@ const PlanesCard = ({ planes }) => {
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
             <UpTo />
-            <Text>Up to {Wingspan}</Text>
+            <Text>Up to {Wingspan.substring(0, 4)}</Text>
           </View>
           <View style={styles.infoItem}>
             <Fuel />
-            <Text>{FuelEfficiency} liters</Text>
+            <Text>{FuelEfficiency.substring(0, 4)} liters</Text>
           </View>
           <View style={styles.infoItem}>
             <Max />
-            <Text>Max {MaximumSpeed} km/h</Text>
+            <Text>Max {MaximumSpeed.substring(0, 4)} km/h</Text>
           </View>
         </View>
         <Text style={styles.description} numberOfLines={3}>{Description}</Text>
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     width: '100%',
     paddingTop: 8,
+    gap: 10,
   },
   title: {
     fontSize: 16,
@@ -78,6 +79,7 @@ const styles = StyleSheet.create({
   infoItem: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 5,
   },
   description: {
     color: '#FFFFFF',

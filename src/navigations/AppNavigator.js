@@ -6,6 +6,8 @@ import HomeScreen from '../screens/HomeScreen';
 import Planes from '../screens/Planes';
 import InfoPlanes from '../screens/InfoPlanes';
 import GameScreen from '../screens/GameScreen';
+import SettingScreen from '../screens/SettingScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Planes" component={Planes} />
       <Stack.Screen name="Info" component={InfoPlanes} />
       <Stack.Screen name="Game" component={GameScreen} />
+      <Stack.Screen name="Setting" component={SettingScreen} />
     </Stack.Navigator>
   );
 };
