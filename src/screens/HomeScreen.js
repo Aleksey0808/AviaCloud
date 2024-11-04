@@ -12,7 +12,9 @@ const HomeScreen = ({ navigation }) => {
           source={require('../../assets/images/background/baner.png')}
           style={styles.mainImage}
         />
-        <TouchableOpacity style={styles.bannerButton}>
+        <TouchableOpacity 
+        onPress={() => navigation.navigate("Game")}
+        style={styles.bannerButton}>
           <Image 
             source={require('../../assets/images/elements/Play.png')}
             style={styles.imageButton}
