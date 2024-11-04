@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, FlatList, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, FlatList, Dimensions, Alert } from 'react-native';
 import { BlurView } from 'expo-blur';
 import Header from '../components/Header';
 import ResultModal from '../components/ResultModal'; 
 import { quizData } from '../helpers/quizData';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width } = Dimensions.get('window');
 
@@ -13,16 +14,46 @@ const GameScreen = ({ navigation }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
-  const handleAnswerPress = (isCorrect) => {
+  useEffect(() => {
+    const loadProgress = async () => {
+      try {
+        const storedIndex = await AsyncStorage.getItem('currentQuestionIndex');
+        const storedCorrectAnswers = await AsyncStorage.getItem('correctAnswers');
+        if (storedIndex !== null) {
+          setCurrentQuestionIndex(parseInt(storedIndex, 10));
+        }
+        if (storedCorrectAnswers !== null) {
+          setCorrectAnswers(parseInt(storedCorrectAnswers, 10));
+        }
+      } catch (error) {
+        console.error("Error loading progress: ", error);
+      }
+    };
+
+    loadProgress();
+  }, []);
+
+  const handleAnswerPress = async (isCorrect) => {
     if (isCorrect) {
       setCorrectAnswers(prev => prev + 1);
     }
+
+    await AsyncStorage.setItem('currentQuestionIndex', (currentQuestionIndex + 1).toString());
+    await AsyncStorage.setItem('correctAnswers', correctAnswers.toString());
+
     if (currentQuestionIndex < quizData.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
       setSelectedAnswer(null);
     } else {
       setShowModal(true);
+      await AsyncStorage.removeItem('currentQuestionIndex');
+      await AsyncStorage.removeItem('correctAnswers');
     }
+  };
+
+  const handleResetProgress = async () => {
+    await AsyncStorage.removeItem('currentQuestionIndex');
+    await AsyncStorage.removeItem('correctAnswers');
   };
 
   const currentQuestion = quizData[currentQuestionIndex];
@@ -47,9 +78,9 @@ const GameScreen = ({ navigation }) => {
           data={currentQuestion.options}
           renderItem={({ item }) => (
             <TouchableOpacity
-            style={[
-                styles.answerCard,
-                selectedAnswer === item && styles.selectedAnswerCard
+              style={[
+                  styles.answerCard,
+                  selectedAnswer === item && styles.selectedAnswerCard
               ]}
               onPress={() => setSelectedAnswer(item)}
             >
@@ -76,11 +107,15 @@ const GameScreen = ({ navigation }) => {
           visible={showModal}
           correctAnswers={correctAnswers}
           totalQuestions={quizData.length}
-          onClose={() => setShowModal(false)}
+          onClose={() => {
+            setShowModal(false);
+            handleResetProgress(); 
+          }}
           onPlayAgain={() => {
             setCurrentQuestionIndex(0);
             setCorrectAnswers(0);
             setShowModal(false);
+            handleResetProgress(); 
           }}
         />
       </View>
