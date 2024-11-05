@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, FlatList, Dimensions, Alert } from 'react-native';
+import { 
+  View, 
+  Text, 
+  TouchableOpacity, 
+  StyleSheet, 
+  ImageBackground, 
+  FlatList, 
+  Dimensions, 
+  Image,
+  Platform 
+} from 'react-native';
 import { BlurView } from 'expo-blur';
 import Header from '../components/Header';
 import ResultModal from '../components/ResultModal'; 
@@ -65,6 +75,7 @@ const GameScreen = ({ navigation }) => {
       style={styles.background}
     >
       <View style={styles.container}>
+      <Image source={require('../../assets/images/skoke/smokeGame.png')} style={styles.smokeBottom} />
          <View style={styles.headerContainer}>
             <Header title="Aviation Quiz" navigation={navigation} showBackButton={true} />
         </View>
@@ -84,9 +95,15 @@ const GameScreen = ({ navigation }) => {
               ]}
               onPress={() => setSelectedAnswer(item)}
             >
-              <BlurView intensity={30} style={styles.blurView} tint="light">
-                <Text style={styles.answerText}>{item}</Text>
-              </BlurView>
+                {Platform.OS === 'ios' ? (
+                  <BlurView intensity={30} style={styles.blurView} tint="light">
+                    <Text style={styles.answerText}>{item}</Text>
+                  </BlurView>
+                ) : (
+                  <View style={styles.alternativeBackground}>
+                    <Text style={styles.answerText}>{item}</Text>
+                  </View>
+              )}
             </TouchableOpacity>
           )}
           keyExtractor={(item, index) => index.toString()}
@@ -187,6 +204,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 18,
   },
+  alternativeBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    borderRadius: 18,
+  },
   answerText: {
     fontSize: 16,
     color: '#FFFFFF',
@@ -213,5 +237,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  smokeBottom: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    width: '100%',
+    height: '80%',
+    resizeMode: 'stretch',
   },
 });
