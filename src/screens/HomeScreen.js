@@ -10,12 +10,10 @@ const HomeScreen = ({ navigation }) => {
   const [displayedAirplanes, setDisplayedAirplanes] = useState(airplanes);
 
   useEffect(() => {
-    console.log('refresh')
+    // console.log('refresh')
     setDisplayedAirplanes(airplanes);
   }, [airplanes]);
 
-    // console.log('airplaneCategories', airplaneCategories)
-    console.log('airplanes', airplanes)
   const renderHeader = () => (
     <View>
       <View style={styles.imageContainer}>

@@ -34,6 +34,7 @@ export const AirplanesProvider = ({ children }) => {
 
   useEffect(() => {
     if (airplanes.length > 0) {
+      console.log('Saving updated airplanes to AsyncStorage:', airplanes); 
       AsyncStorage.setItem('airplanes', JSON.stringify(airplanes)).catch((error) => {
         console.error('Error saving airplanes:', error);
       });
@@ -51,14 +52,32 @@ export const AirplanesProvider = ({ children }) => {
         }
         return categoryObj;
       });
-
-      console.log('Updated airplanes after addPlane:', updatedAirplanes);
       return updatedAirplanes;
     });
   };
 
+  const removePlane = (categoryTitle, planeId) => {
+    setAirplanes((prevAirplanes) => {
+      const updatedAirplanes = prevAirplanes.map((categoryObj) => {
+        console.log(categoryObj.title)
+        if (categoryObj.title === categoryTitle) {
+          const filteredAirplanes = categoryObj.airplanes.filter((plane) => plane.id !== planeId);
+          console.log('Filtered airplanes:', filteredAirplanes); 
+          return {
+            ...categoryObj,
+            airplanes: filteredAirplanes, 
+          };
+        }
+        return categoryObj;
+      });
+      return updatedAirplanes;
+    });
+  };
+  
+  
+
   return (
-    <AirplanesContext.Provider value={{ airplanes, addPlane }}>
+    <AirplanesContext.Provider value={{ airplanes, addPlane, removePlane }}>
       {children}
     </AirplanesContext.Provider>
   );

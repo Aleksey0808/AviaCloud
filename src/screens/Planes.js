@@ -6,7 +6,7 @@ import { useAirplanes } from '../utils/AirplanesContext';
 
 const Planes = ({ navigation, route }) => {
   const [categoryPlanes, setCategoryPlanes] = useState([]);
-  // const { airplanes } = useAirplanes();
+  const { removePlane } = useAirplanes();
   const { category, airplanes, title } = route.params;
   // const planes = airplanes[category.title];
   // console.log("Category Title:", category.title);
@@ -15,7 +15,7 @@ const Planes = ({ navigation, route }) => {
   // console.log('route', route.params)
 
   useEffect(() => {
-    console.log('refresh2')
+    // console.log('refresh2')
     setCategoryPlanes(airplanes);
   }, [airplanes]);
 
@@ -41,7 +41,7 @@ const Planes = ({ navigation, route }) => {
           contentContainerStyle={styles.listContent}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <PlanesCard planes={item}/>
+            <PlanesCard planes={item} category={title}/>
           )}
         />
       </ImageBackground>

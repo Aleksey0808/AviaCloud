@@ -4,15 +4,23 @@ import { useNavigation } from "@react-navigation/native";
 import Fuel from '../../assets/icons/Fuel';
 import Max from '../../assets/icons/Max';
 import UpTo from '../../assets/icons/UpTo';
+import { useAirplanes } from '../utils/AirplanesContext';
 
-const PlanesCard = ({ planes }) => {
-  const { title, Description, img, MaximumSpeed, FuelEfficiency, Wingspan } = planes;
+const PlanesCard = ({ planes, category }) => {
+  const { removePlane } = useAirplanes();
+  const { title, Description, img, MaximumSpeed, FuelEfficiency, Wingspan, id } = planes;
   const navigation = useNavigation();
+  // console.log(planes)
 
   useEffect(() => {
-    console.log('refresh3')
+    // console.log('refresh3')
  
   }, [planes]);
+
+  const handleRemovePlane = (planeId) => {
+    // console.log('planeId', planeId)
+    removePlane(category, planeId); 
+  };
 
   return (
     <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Info", { plane: planes })}>
@@ -34,6 +42,12 @@ const PlanesCard = ({ planes }) => {
           </View>
         </View>
         <Text style={styles.description} numberOfLines={3}>{Description}</Text>
+        <TouchableOpacity
+                style={styles.removeButton}
+                onPress={() => handleRemovePlane(id)}
+              >
+                <Text style={styles.removeButtonText}>Удалить</Text>
+              </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
@@ -89,5 +103,19 @@ const styles = StyleSheet.create({
   description: {
     color: '#FFFFFF',
     fontSize: 14,
+  },
+  removeButton: {
+    marginTop: 10,
+    backgroundColor: '#DA2536',
+    padding: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 100,
+    height: 40,
+  },
+  removeButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
