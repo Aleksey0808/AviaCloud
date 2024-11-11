@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Image, ImageBackground, View, Text, TouchableOpacity, FlatList } from 'react-native';
 import Header from '../components/Header';
 import { airplaneCategories } from '../helpers/airplaneCategories';
 import CategoryCard from '../components/CategoryCard';
+import { useAirplanes } from '../utils/AirplanesContext';
 
 const HomeScreen = ({ navigation }) => {
+  const { airplanes } = useAirplanes();
+  const [displayedAirplanes, setDisplayedAirplanes] = useState(airplanes);
+
+  useEffect(() => {
+    console.log('refresh')
+    setDisplayedAirplanes(airplanes);
+  }, [airplanes]);
+
+    // console.log('airplaneCategories', airplaneCategories)
+    console.log('airplanes', airplanes)
   const renderHeader = () => (
     <View>
       <View style={styles.imageContainer}>
@@ -41,7 +52,7 @@ const HomeScreen = ({ navigation }) => {
         <Header title="Home" navigation={navigation} />
       </View>
         <FlatList
-          data={airplaneCategories}
+          data={airplanes}
           numColumns={2}
           contentContainerStyle={styles.listContent}
           keyExtractor={(item) => item.id.toString()}

@@ -7,6 +7,7 @@ import Planes from '../screens/Planes';
 import InfoPlanes from '../screens/InfoPlanes';
 import GameScreen from '../screens/GameScreen';
 import SettingScreen from '../screens/SettingScreen';
+import AddPlanesScreen from '../screens/AddPlanesScreen';
 
 
 const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Info" component={InfoPlanes} />
       <Stack.Screen name="Game" component={GameScreen} />
       <Stack.Screen name="Setting" component={SettingScreen} />
+      <Stack.Screen name="Add" component={AddPlanesScreen} />
     </Stack.Navigator>
   );
 };

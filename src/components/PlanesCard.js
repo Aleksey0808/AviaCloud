@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import Fuel from '../../assets/icons/Fuel';
@@ -9,6 +9,11 @@ const PlanesCard = ({ planes }) => {
   const { title, Description, img, MaximumSpeed, FuelEfficiency, Wingspan } = planes;
   const navigation = useNavigation();
 
+  useEffect(() => {
+    console.log('refresh3')
+ 
+  }, [planes]);
+
   return (
     <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Info", { plane: planes })}>
       <Image source={img} style={styles.image} />
@@ -17,11 +22,11 @@ const PlanesCard = ({ planes }) => {
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
             <UpTo />
-            <Text>Up to {Wingspan.substring(0, 4)}</Text>
+            {/* <Text>Up to {Wingspan.substring(0, 4)}</Text> */}
           </View>
           <View style={styles.infoItem}>
             <Fuel />
-            <Text>{FuelEfficiency.substring(0, 4)} liters</Text>
+            {/* <Text>{FuelEfficiency.substring(0, 4)} liters</Text> */}
           </View>
           <View style={styles.infoItem}>
             <Max />
