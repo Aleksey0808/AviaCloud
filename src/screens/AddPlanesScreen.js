@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, ImageBackground, View, Text, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import Header from '../components/Header';
 import { useAirplanes } from '../utils/AirplanesContext';
 
 const AddPlanesScreen = ({ navigation, route }) => {
-  const { category } = route.params;
-  const { addPlane } = useAirplanes(); 
-
-  const [planeName, setPlaneName] = useState('');
-  const [planeSpeed, setPlaneSpeed] = useState('');
-  const [planeRange, setPlaneRange] = useState('');
-  const [planeType, setPlaneType] = useState('');
-  const [manufacturer, setManufacturer] = useState('');
-  const [armament, setArmament] = useState('');
-  const [engine, setEngine] = useState('');
-  const [serviceC, setServiceC] = useState('');
-  const [fuelEfficiency, setFuelEfficiency] = useState('');
-  const [wingspan, setWingspan] = useState('');
-  const [role, setRole] = useState('');
-  const [description, setDescription] = useState('');
+  const { category, planes } = route.params; 
+  const { addPlane, editPlane } = useAirplanes();
+  
+  const [planeName, setPlaneName] = useState(planes ? planes.title : '');
+  const [planeSpeed, setPlaneSpeed] = useState(planes ? planes.MaximumSpeed : '');
+  const [planeRange, setPlaneRange] = useState(planes ? planes.Range : '');
+  const [planeType, setPlaneType] = useState(planes ? planes.Type : '');
+  const [manufacturer, setManufacturer] = useState(planes ? planes.Manufacturer : '');
+  const [armament, setArmament] = useState(planes ? planes.Armament : '');
+  const [engine, setEngine] = useState(planes ? planes.Engine : '');
+  const [serviceC, setServiceC] = useState(planes ? planes.ServiceCeiling : '');
+  const [fuelEfficiency, setFuelEfficiency] = useState(planes ? planes.FuelEfficiency : '');
+  const [wingspan, setWingspan] = useState(planes ? planes.Wingspan : '');
+  const [role, setRole] = useState(planes ? planes.Role : '');
+  const [description, setDescription] = useState(planes ? planes.Description : '');
 
   const handleSave = () => {
     if (planeName && planeSpeed && planeRange) {
       const newPlane = {
-        id: Date.now(),
+        id: planes ? planes.id : Date.now(), 
         title: planeName,
         Type: planeType,
         Manufacturer: manufacturer,
@@ -38,8 +38,11 @@ const AddPlanesScreen = ({ navigation, route }) => {
         Description: description,
       };
 
-      addPlane(category.title, newPlane); 
+      if (planes) {
+        editPlane(category, newPlane); 
+      }
 
+      addPlane(category.title, newPlane); 
       navigation.goBack();
     } else {
       Alert.alert('Ошибка', 'Пожалуйста, заполните все поля');
@@ -53,13 +56,12 @@ const AddPlanesScreen = ({ navigation, route }) => {
         style={styles.background}
       >
         <View style={styles.headerContainer}>
-          <Header title="Add Plane" navigation={navigation} showBackButton={true} />
+          <Header title={planes ? "Редактировать Самолет" : "Добавить Самолет"} navigation={navigation} showBackButton={true} />
         </View>
 
         <View style={styles.formContainer}>
-          <Text style={styles.title}>Добавить Самолет</Text>
+          <Text style={styles.title}>{planes ? "Редактировать" : "Добавить"} Самолет</Text>
 
-          {/* Название самолета */}
           <View style={styles.inputRow}>
             <Text style={styles.label}>Название самолета:</Text>
             <TextInput
@@ -71,7 +73,6 @@ const AddPlanesScreen = ({ navigation, route }) => {
             />
           </View>
 
-          {/* Скорость */}
           <View style={styles.inputRow}>
             <Text style={styles.label}>Скорость:</Text>
             <TextInput
@@ -84,7 +85,6 @@ const AddPlanesScreen = ({ navigation, route }) => {
             />
           </View>
 
-          {/* Радиус действия */}
           <View style={styles.inputRow}>
             <Text style={styles.label}>Радиус действия:</Text>
             <TextInput
@@ -97,7 +97,6 @@ const AddPlanesScreen = ({ navigation, route }) => {
             />
           </View>
 
-          {/* Тип */}
           <View style={styles.inputRow}>
             <Text style={styles.label}>Тип:</Text>
             <TextInput

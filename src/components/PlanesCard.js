@@ -43,11 +43,17 @@ const PlanesCard = ({ planes, category }) => {
         </View>
         <Text style={styles.description} numberOfLines={3}>{Description}</Text>
         <TouchableOpacity
-                style={styles.removeButton}
-                onPress={() => handleRemovePlane(id)}
-              >
-                <Text style={styles.removeButtonText}>Удалить</Text>
-              </TouchableOpacity>
+          style={styles.removeButton}
+          onPress={() => handleRemovePlane(id)}
+        >
+          <Text style={styles.removeButtonText}>Удалить</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.removeButton}
+          onPress={() => navigation.navigate("Add", { category, planes })}
+        >
+          <Text style={styles.removeButtonText}>Edit</Text>
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
@@ -105,6 +111,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   removeButton: {
+    marginTop: 10,
+    backgroundColor: '#DA2536',
+    padding: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 100,
+    height: 40,
+  },
+  editButton: {
     marginTop: 10,
     backgroundColor: '#DA2536',
     padding: 10,

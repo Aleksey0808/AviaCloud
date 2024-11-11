@@ -73,11 +73,33 @@ export const AirplanesProvider = ({ children }) => {
       return updatedAirplanes;
     });
   };
+
+  const editPlane = (categoryTitle, updatedPlane) => {
+    setAirplanes((prevAirplanes) => {
+      const updatedAirplanes = prevAirplanes.map((categoryObj) => {
+        if (categoryObj.title === categoryTitle) {
+          const updatedAirplanesList = categoryObj.airplanes.map((plane) => {
+            if (plane.id === updatedPlane.id) {
+              return { ...plane, ...updatedPlane }; 
+            }
+            return plane;
+          });
+          return {
+            ...categoryObj,
+            airplanes: updatedAirplanesList,
+          };
+        }
+        return categoryObj;
+      });
+      return updatedAirplanes;
+    });
+  };
+  
   
   
 
   return (
-    <AirplanesContext.Provider value={{ airplanes, addPlane, removePlane }}>
+    <AirplanesContext.Provider value={{ airplanes, addPlane, removePlane, editPlane }}>
       {children}
     </AirplanesContext.Provider>
   );
