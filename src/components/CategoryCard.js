@@ -5,7 +5,11 @@ import { useNavigation } from "@react-navigation/native";
 const CategoryCard = ({ category, onPress }) => {
     const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Planes", category)}>
+    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Planes", { 
+      category: category, 
+      airplanes: category.airplanes,   
+      title: category.title 
+    })}>
       <Image source={category.img} style={styles.image} />
       <Text style={styles.title}>{category.title}</Text>
     </TouchableOpacity>

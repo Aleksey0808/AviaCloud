@@ -3,11 +3,14 @@ import { View, Modal, Image, TouchableOpacity, Text, StyleSheet, } from 'react-n
 import { NativeRouter } from "react-router-native";
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './src/navigations/AppNavigator';
+import { AirplanesProvider } from './src/utils/AirplanesContext';
 
 export default function App() {
     return (
-      <NavigationContainer>
+      <AirplanesProvider>
+        <NavigationContainer>
         <AppNavigator />
       </NavigationContainer>
+      </AirplanesProvider>
     );
   }
