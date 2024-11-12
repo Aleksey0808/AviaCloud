@@ -6,17 +6,13 @@ import { useAirplanes } from '../utils/AirplanesContext';
 
 const Planes = ({ navigation, route }) => {
   const [categoryPlanes, setCategoryPlanes] = useState([]);
-  const { removePlane } = useAirplanes();
-  const { category, airplanes, title } = route.params;
-  // const planes = airplanes[category.title];
-  // console.log("Category Title:", category.title);
-  // console.log("Airplanes Data:", airplanes);
-  // console.log('airplanes', airplanes)
-  // console.log('route', route.params)
+  const { airplanes } = useAirplanes();
+  const { category, title } = route.params;
 
   useEffect(() => {
-    // console.log('refresh2')
-    setCategoryPlanes(airplanes);
+  const businessJetsCategory = airplanes.find(item => item.title === category.title);
+  console.log(businessJetsCategory.airplanes)
+    setCategoryPlanes(businessJetsCategory.airplanes);
   }, [airplanes]);
 
   return (
@@ -32,7 +28,7 @@ const Planes = ({ navigation, route }) => {
       <TouchableOpacity 
           onPress={() => navigation.navigate("Add", { category })}
         style={styles.addButton}>
-          <Text style={{fontWeight: 600, fontSize: 14}}>Add planes</Text>
+          <Text style={{fontWeight: 600, fontSize: 14, color: '#fff'}}>Add planes</Text>
         </TouchableOpacity> 
       </View>
       <FlatList
@@ -70,9 +66,10 @@ const styles = StyleSheet.create({
   },
   addButton: {
     marginTop: 10,
+    marginBottom: 10,
     marginRight: 10,
     padding: 10,
-    backgroundColor: '#DA2536',
+    backgroundColor: '#2E3C5F',
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',

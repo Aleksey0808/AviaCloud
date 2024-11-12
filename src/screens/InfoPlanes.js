@@ -15,7 +15,11 @@ const InfoPlanes = ({ navigation, route }) => {
           <Header title={plane.title} navigation={navigation} showBackButton={true} />
         </View>
         <View  style={styles.wrapperImg}>
-          <Image source={plane.img} style={styles.image} />
+          <Image 
+            source={typeof plane.img === 'string' ? { uri: plane.img } : plane.img ? plane.img : require('../../assets/images/default.png')} 
+            style={styles.image} 
+          />
+
         </View>
         <Text style={styles.title}>{plane.title}</Text>
         <View style={styles.infoContainer}>
@@ -91,7 +95,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    // height: 150,
+    height: 150,
     resizeMode: 'cover',
     borderRadius: 10,
     margin: 8, 
