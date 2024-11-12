@@ -43,7 +43,7 @@ const PlanesCard = ({ planes, category }) => {
           style={styles.removeButton}
           onPress={() => handleRemovePlane(id)}
         >
-          <Text style={styles.removeButtonText}>Удалить</Text>
+          <Text style={styles.removeButtonText}>Delete</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.editButton}
