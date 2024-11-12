@@ -11,7 +11,6 @@ const Planes = ({ navigation, route }) => {
 
   useEffect(() => {
   const businessJetsCategory = airplanes.find(item => item.title === category.title);
-  console.log(businessJetsCategory.airplanes)
     setCategoryPlanes(businessJetsCategory.airplanes);
   }, [airplanes]);
 
