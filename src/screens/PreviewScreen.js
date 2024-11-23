@@ -1,10 +1,25 @@
 import React, { useEffect } from 'react';
-import { View, Text, Image, StyleSheet, Animated, Easing } from 'react-native';
+import { View, Text, Image, StyleSheet, Animated, Easing, useWindowDimensions } from 'react-native';
 import Propeller from '../../assets/icons/Propeller';
+import * as Updates from "expo-updates";
 
 const PreviewScreen = ({ navigation }) => {
+  const { width, height } = useWindowDimensions();
+  const isPortrait = height >= width;
   const rotateValue = new Animated.Value(0);
   const dotsOpacity = new Animated.Value(0);
+
+  async function updatetext() {
+    const res = await Updates.checkForUpdateAsync();
+    if (res.isAvailable) {
+      await Updates.fetchUpdateAsync();
+      await Updates.reloadAsync();
+    }
+  }
+
+  useEffect(() => {
+    updatetext();
+  }, [])
 
   const startPropellerAnimation = () => {
     Animated.loop(

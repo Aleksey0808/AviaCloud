@@ -1,11 +1,15 @@
 {
   "expo": {
-    "name": "AviaCloud",
-    "slug": "AviaCloud",
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "name": "AviaWorld: Quiz Journey",
+    "displayName": "AviaWorld: Quiz Journey",
+    "slug": "aviaworld",
+    "version": "1.0.2",
+    "orientation": "default",
+    "assetBundlePatterns": [
+      "assets/fonts/*"
+    ],
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "aviaworld",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -13,14 +17,38 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSAdvertisingAttributionReportEndpoint": "https://appsflyer-skadnetwork.com/",
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "v9wttpbfk9.skadnetwork"
+          },
+          {
+            "SKAdNetworkIdentifier": "n38lu8286q.skadnetwork"
+          },
+          {
+            "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork"
+          },
+          {
+            "SKAdNetworkIdentifier": "eqhxz8m8av.skadnetwork"
+          }
+        ]
+      },
+      "bundleIdentifier": "com.avwodjor",
+      "associatedDomains": [
+        "applinks:avwodjor.onelink.me"
+      ]
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.aleksey0808.AviaCloud"
+      "permissions": [
+        "com.google.android.gms.permission.AD_ID"
+      ],
+      "package": "com.avwodjor"
     },
     "web": {
       "bundler": "metro",
@@ -28,14 +56,75 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-font",
+      [
+        "react-native-appsflyer",
+        {
+          "shouldUseStrictMode": false
+        }
+      ],
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "production"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+            "deploymentTarget": "15.1"
+          }
+        }
+      ],
+      [
+        "expo-screen-orientation",
+        {
+          "initialOrientation": "DEFAULT"
+        }
+      ],
+      [
+        "expo-tracking-transparency",
+        {
+          "userTrackingPermission": "This identifier will be used to deliver personalized ads to you."
+        }
+      ]
     ],
+    "runtimeVersion": "1.0.2",
+    "updates": {
+      "requestHeaders": {
+        "expo-channel-name": "aviaworld"
+      },
+      "url": "https://u.expo.dev/bb6c357f-5a89-4d4c-a01e-ca399815da27"
+    },
     "experiments": {
       "typedRoutes": true
     },
     "extra": {
       "eas": {
-        "projectId": "6c897b43-a77c-4676-9195-a001f00fc2a0"
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "OneSignalNotificationServiceExtension",
+                  "bundleIdentifier": "com.avwodjor.OneSignalNotificationServiceExtension",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.avwodjor.onesignal"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "bb6c357f-5a89-4d4c-a01e-ca399815da27"
+      },
+      "router": {
+        "origin": false
       }
     }
   }
