@@ -55,7 +55,7 @@ const PreviewScreen = ({ navigation }) => {
 
     const timer = setTimeout(() => {
       navigation.navigate('Welcome');
-    }, 3000);
+    }, 6000);
 
     return () => clearTimeout(timer); 
   }, []);
