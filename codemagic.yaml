@@ -11,9 +11,9 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.avwodjor
       vars:
-        APP_STORE_APPLE_ID: "ymustafakemal627@hotmail.com"
-        APP_STORE_CONNECT_API_PRIVATE_KEY: "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgaJE0dfpt5MHuAMuYIgQtHheR5KxQu+wCCb1nlFmCXRagCgYIKoZIzj0DAQehRANCAARV6GvjDQxY+FT6NDNwqjfzZ6l86liYBMuTDaSDb7jp76PBWM19B263LAHpIiolWeDKzEXBWDLCqnMtkgkFM0KQ"
-        APP_STORE_CONNECT_API_KEY_ID: "W4CQ5DYS55"
+        APP_STORE_APPLE_ID: "goldbachbayhonan@gmail.com "
+        APP_STORE_CONNECT_API_PRIVATE_KEY: "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgu2xAtSL43oMABuwb2dD2q8DGz34sd/JhTwEzHQBBCySgCgYIKoZIzj0DAQehRANCAATwV3uHffL0CRofc5IgnHQbSmrIcyeDv1qG0EWsBnenEyK5JLgfddKS9Y1shICSklR3eidjNFqORS3ebfyDh76O"
+        APP_STORE_CONNECT_API_KEY_ID: "R7D9Q25Q4M"
         BUNDLE_ID: "com.avwodjor"
         XCODE_WORKSPACE: "AviaWorld.xcworkspace"
         XCODE_SCHEME: "AviaWorld"
